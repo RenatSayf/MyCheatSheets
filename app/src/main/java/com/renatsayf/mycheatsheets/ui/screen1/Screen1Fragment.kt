@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.renatsayf.mycheatsheets.R
+import com.renatsayf.mycheatsheets.databinding.Screen1FragmentBinding
 
-class Screen1Fragment : Fragment()
+class Screen1Fragment : Fragment(R.layout.screen1_fragment) // TODO ViewBinding Step 2
 {
+    private lateinit var binding: Screen1FragmentBinding // TODO ViewBinding Step 3
 
     companion object
     {
@@ -22,6 +24,13 @@ class Screen1Fragment : Fragment()
     ): View?
     {
         return inflater.inflate(R.layout.screen1_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
+        super.onViewCreated(view, savedInstanceState)
+        binding = Screen1FragmentBinding.bind(view) // TODO ViewBinding Step 4
+
     }
 
 }

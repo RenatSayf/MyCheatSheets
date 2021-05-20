@@ -2,20 +2,19 @@ package com.renatsayf.mycheatsheets.ui.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 class AnimViewModel(app: Application) : AndroidViewModel(app)
 {
-    private var _uiState = MutableStateFlow(UiState.Created(0, 0))
-    val uiState: StateFlow<UiState> = _uiState
+    //region // TODO ViewPropertyAnimation.Scale Step 3
+    private var _uiState = MutableLiveData<UiState>(UiState.TextViewCreated(0f, 0f))
+    val uiState: LiveData<UiState> = _uiState
 
-    init
+    fun setTextSize(state: UiState)
     {
-        viewModelScope.launch {
-            _uiState.emit(UiState.Created(0, 0))
-        }
+        _uiState.value = state
     }
+    //endregion
+
 }

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.renatsayf.mycheatsheets.R
@@ -65,6 +66,35 @@ class Screen1Fragment : Fragment(R.layout.screen1_fragment) // TODO ViewBinding 
                 }
             }
         }
+
+        binding.text1View.setOnClickListener {
+            binding.container.transitionToEnd()
+        }
+
+        binding.container.setTransitionListener(object : MotionLayout.TransitionListener
+        {
+            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int)
+            {
+                return
+            }
+
+            override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float)
+            {
+                return
+            }
+
+            override fun onTransitionCompleted(p0: MotionLayout?, p1: Int)
+            {
+                return
+            }
+
+            override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float)
+            {
+                return
+            }
+
+        })
+
 
     }
 

@@ -45,7 +45,7 @@ class Scree2Fragment : Fragment(R.layout.scree2_fragment)
                 recordAudioPermission.launch(Manifest.permission.RECORD_AUDIO)
                 return@setOnClickListener
             }
-            runSpeechRecognizer()
+            runSpeechRecognizer() //TODO Speech Recognizer Step 5 Запуск распознования
         }
 
         binding.resultTV.onItemClickListener = object : AdapterView.OnItemClickListener
@@ -59,6 +59,7 @@ class Scree2Fragment : Fragment(R.layout.scree2_fragment)
         }
     }
 
+    //TODO Speech Recognizer Step 3 Готовим intent
     private fun runSpeechRecognizer()
     {
         val intent = Intent(Intent.ACTION_VIEW).apply {
@@ -73,12 +74,14 @@ class Scree2Fragment : Fragment(R.layout.scree2_fragment)
         speechRecognizer.launch(intent)
     }
 
+    //TODO Speech Recognizer Step 4 Получение результата распознавания
     private val speechRecognizer = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
         val data = result.data
         data?.let {
             val listExtra = it.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
             if (!listExtra.isNullOrEmpty())
             {
+                // Запись результата в AutoCompleteTextView
                 val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, listExtra)
                 binding.resultTV.apply {
                     setAdapter(adapter)

@@ -17,6 +17,8 @@
         android:textStyle="bold"
         android:textColor="@color/black"/>
 
+
+<!--    TODO Speech Recognizer Step 2 Сюда будем записывать результат распознования -->
     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
         android:id="@+id/resultTV"
         android:layout_width="match_parent"

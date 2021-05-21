@@ -7,13 +7,37 @@
     tools:context=".ui.screen2.Scree2Fragment">
 
     <TextView
+        android:id="@+id/headerTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
-        android:text="Screen 2"
+        android:text="Пример функции распознования речи"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/black"/>
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/resultTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/headerTV"
+        android:layout_marginTop="50dp"
+        android:textSize="18sp"
+        android:padding="10dp"
+        tools:text="Распознаный текст"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/micButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_mic"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

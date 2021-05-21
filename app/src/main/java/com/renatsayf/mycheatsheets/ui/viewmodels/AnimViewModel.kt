@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 class AnimViewModel(app: Application) : AndroidViewModel(app)
 {
     //region // TODO ViewPropertyAnimation.Scale Step 3
-    private var _uiState = MutableLiveData<UiState>(UiState.TextViewCreated(0f, 0f))
+    private var _uiState = MutableLiveData<UiState>(UiState.TextViewCreated(0f, 0f)) // установка начального масштаба TextView
     val uiState: LiveData<UiState> = _uiState
 
     fun setTextSize(state: UiState)
